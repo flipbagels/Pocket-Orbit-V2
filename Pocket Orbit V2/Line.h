@@ -19,7 +19,6 @@ private:
 	sf::Vector2f A;
 	sf::Vector2f B;
 	bool readyForLaunch = false;
-	bool updateLineInhibit = false;
 	static constexpr float maxLength = 300.0f;
 
 	// Private Functions
@@ -32,6 +31,7 @@ public:
 	~Line();
 
 	// Functions
+	bool updateLineInhibit = false;
 	sf::Vector2f getVertexA();
 	sf::Vector2f getVertexB();
 	bool isReadyForLaunch();

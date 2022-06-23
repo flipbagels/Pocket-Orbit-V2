@@ -673,7 +673,7 @@ void Game::updateLevel_1()
 	}
 
 	// Creates launch line and new space object
-	if (this->allowInput == true && this->launchCounter.getCount() < this->level_1LaunchCounterMax)
+	if ((this->allowInput == true || this->launchLine.updateLineInhibit == true) && this->launchCounter.getCount() < this->level_1LaunchCounterMax)
 	{
 		// Updates Spawn Circle
 		this->spawnCircle.updateSpawnCircle(*this->window, this->panZoom);
@@ -805,7 +805,7 @@ void Game::updateLevel_2()
 	}
 
 	// Creates launch line and new space object
-	if (this->allowInput == true && this->launchCounter.getCount() < this->level_2LaunchCounterMax)
+	if ((this->allowInput == true || this->launchLine.updateLineInhibit == true) && this->launchCounter.getCount() < this->level_2LaunchCounterMax)
 	{
 		// Updates Spawn Circle
 		this->spawnCircle.updateSpawnCircle(*this->window, this->panZoom);
@@ -998,7 +998,7 @@ void Game::updateLevel_3()
 	}
 
 	// Creates launch line and new space object
-	if (this->allowInput == true && this->launchCounter.getCount() < this->level_3LaunchCounterMax)
+	if ((this->allowInput == true || this->launchLine.updateLineInhibit == true) && this->launchCounter.getCount() < this->level_3LaunchCounterMax)
 	{
 		// Updates spawn rectangle
 		this->spawnRectangle.updateSpawnRectangle(*this->window, this->panZoom);
@@ -1164,7 +1164,7 @@ void Game::updateSandbox()
 
 
 	// Creates launch line and new space object
-	if (this->allowInput == true)
+	if (this->allowInput == true || this->launchLine.updateLineInhibit == true)
 	{
 		this->launchLine.updateLine(*this->window, this->panZoom);
 		if (this->launchLine.isReadyForLaunch())
