@@ -8,10 +8,10 @@ LevelSelect::LevelSelect()
 
 LevelSelect::LevelSelect(float width, float height, std::map<std::string, sf::Texture>& textureMap_in)
 	:
-	level_1Pos(sf::Vector2f(5 * width / 16, height / 4)),
-	level_2Pos(sf::Vector2f(11 * width / 16, height / 4)),
-	level_3Pos(sf::Vector2f(5 * width / 16, 3 * height / 4)),
-	sandboxPos(sf::Vector2f(11 * width / 16, 3 * height / 4)),
+	level_1Pos(sf::Vector2f(5.5 * width / 16, height / 4)),
+	level_2Pos(sf::Vector2f(10.5 * width / 16, height / 4)),
+	level_3Pos(sf::Vector2f(5.5 * width / 16, 3 * height / 4)),
+	sandboxPos(sf::Vector2f(10.5 * width / 16, 3 * height / 4)),
 	homeButtonPos(sf::Vector2f(60.0f, 60.0f)),
 	level_1(this->levelSize, this->level_1Pos),
 	level_1Comet(this->level_1CometRadius, this->level_1Pos),

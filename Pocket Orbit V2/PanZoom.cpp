@@ -6,6 +6,18 @@ PanZoom::PanZoom()
 {
 }
 
+PanZoom::PanZoom(sf::VideoMode videoMode_in)
+	:
+	offsetMax1_x(videoMode_in.width / 5),
+	offsetMax1_y(videoMode_in.height / 5),
+	offsetMax2_x(videoMode_in.width * 0.46),
+	offsetMax2_y(videoMode_in.height * 0.46),
+	offsetMax3_x(- (videoMode_in.width * 0.26)),
+	offsetMax3_y(- (videoMode_in.height * 0.26))
+{
+
+}
+
 PanZoom::~PanZoom()
 {
 }

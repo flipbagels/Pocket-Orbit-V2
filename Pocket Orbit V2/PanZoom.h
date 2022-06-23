@@ -19,16 +19,16 @@ private:
 
 public:
 	// Level_1
-	static constexpr float offsetMax1_x = 300.0f;
-	static constexpr float offsetMax1_y = 200.0f;
+	float offsetMax1_x;
+	float offsetMax1_y;
 
 	// Level_2
-	static constexpr float offsetMax2_x = 690.0f;
-	static constexpr float offsetMax2_y = 460.0f;
+	float offsetMax2_x;
+	float offsetMax2_y = 460.0f;
 
 	// Level_3
-	static constexpr float offsetMax3_x = -390.0f;
-	static constexpr float offsetMax3_y = -260.0f;
+	float offsetMax3_x;
+	float offsetMax3_y;
 
 	// Sandbox
 
@@ -37,6 +37,7 @@ public:
 public:
 	// Constructor / Destructor
 	PanZoom();
+	PanZoom(sf::VideoMode videoMode_in);
 	~PanZoom();
 
 	// Functions

@@ -10,7 +10,7 @@ void Game::initVariables()
 
 void Game::initWindow()
 {
-	this->videoMode.width = 1500;
+	this->videoMode.width = 1920;
 	this->videoMode.height = 1000;
 	//this->videoMode.width = sf::VideoMode::getDesktopMode().width;
 	//this->videoMode.height = sf::VideoMode::getDesktopMode().height;
@@ -137,6 +137,7 @@ void Game::initObjects()
 	this->sandboxUI = SandboxUI(float(this->videoMode.width), float(this->videoMode.height), this->planetIndexMap, this->sataliteIndexMap, this->textureMap);
 	this->pauseUI = PauseUI(this->videoMode, this->textureMap);
 	this->postGameUI = PostGameUI(this->font, this->videoMode, this->textureMap);
+	this->panZoom = PanZoom(this->videoMode);
 }
 
 // Constructor / Destructor
@@ -1098,7 +1099,7 @@ void Game::updateSandbox()
 			this->spaceObjArray[i].updateOutlineColor(*this->window, this->panZoom);
 		}
 
-		if (this->spaceObjArray[i].isPressed(*this->window, this->panZoom))
+		if (this->spaceObjArray[i].isPressed(*this->window, this->panZoom) && this->allowInput == true)
 		{
 			if (i == this->orbitTargetID)
 			{
@@ -1138,7 +1139,7 @@ void Game::updateSandbox()
 		this->spaceObjArray[i].updateRedTrail(this->spaceObjArray[0]);
 	}
 
-	// Checks and updates collisitons between space objects and sun
+	// Checks and updates collisions between space objects and sun
 	for (int i = 1; i < this->spaceObjArray.size(); i++)
 	{
 		if (this->spaceObjArray[i].isCollidedWithSun(this->spaceObjArray[0]))
