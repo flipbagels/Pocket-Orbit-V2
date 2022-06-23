@@ -27,19 +27,19 @@ LevelSelect::LevelSelect(float width, float height, std::map<std::string, sf::Te
 	homeButton(this->homeButtonRadius, this->homeButtonPos, textureMap_in["HomeButton"])
 {
 	// Level_1
-	this->level_1.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
+	this->level_1.shape.setTexture(&textureMap_in["LevelSelectFrame-CometDash"]);
 	this->level_1Comet.shape.setTexture(&textureMap_in["Comet"]);
 
 	// Level_2
-	this->level_2.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
+	this->level_2.shape.setTexture(&textureMap_in["LevelSelectFrame-PlanetDash"]);
 	this->level_2Jupiter.shape.setTexture(&textureMap_in["Jupiter"]);
 
 	// Level_3
-	this->level_3.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
+	this->level_3.shape.setTexture(&textureMap_in["LevelSelectFrame-SaveEarth"]);
 	this->level_3Earth.shape.setTexture(&textureMap_in["Earth"]);
 
 	// Sandbox
-	this->sandbox.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
+	this->sandbox.shape.setTexture(&textureMap_in["LevelSelectFrame-Sandbox"]);
 	this->sandboxImage.shape.setTexture(&textureMap_in["Sandbox"]);
 	this->sandboxEarth.shape.setTexture(&textureMap_in["Earth"]);
 	this->sandboxUranus.shape.setTexture(&textureMap_in["Uranus"]);
@@ -55,10 +55,10 @@ LevelSelect::~LevelSelect()
 // Functions
 void LevelSelect::reset(std::map<std::string, sf::Texture>& textureMap_in)
 {
-	this->level_1.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
-	this->level_2.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
-	this->level_3.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
-	this->sandbox.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
+	this->level_1.shape.setTexture(&textureMap_in["LevelSelectFrame-CometDash"]);
+	this->level_2.shape.setTexture(&textureMap_in["LevelSelectFrame-PlanetDash"]);
+	this->level_3.shape.setTexture(&textureMap_in["LevelSelectFrame-SaveEarth"]);
+	this->sandbox.shape.setTexture(&textureMap_in["LevelSelectFrame-Sandbox"]);
 }
 
 bool LevelSelect::isMouseOnUI(sf::RenderWindow& window_in) const
@@ -103,24 +103,38 @@ bool LevelSelect::isHomePressed(sf::RenderWindow& window_in) const
 	return (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || this->homeButton.isPressed(window_in));
 }
 
-void LevelSelect::swapLevelSelectFrameTexture(sf::RenderWindow& window_in, std::map<std::string, sf::Texture>& textureMap_in, Rectangle& level_in)
+void LevelSelect::swapLevelSelectFrameTexture(sf::RenderWindow& window_in, std::map<std::string, sf::Texture>& textureMap_in, Rectangle& level_in, std::string level_name)
 {
 	if (level_in.isMouseOnRectangle(window_in))
 	{
-		level_in.shape.setTexture(&textureMap_in["LevelSelectFrameSelected"]);
+		if (level_name == "Level_1")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrameSelected-CometDash"]);
+		if (level_name == "Level_2")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrameSelected-PlanetDash"]);
+		if (level_name == "Level_3")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrameSelected-SaveEarth"]);
+		if (level_name == "Sandbox")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrameSelected-Sandbox"]);
 	}
 	else
 	{
-		level_in.shape.setTexture(&textureMap_in["LevelSelectFrame"]);
+		if (level_name == "Level_1")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrame-CometDash"]);
+		if (level_name == "Level_2")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrame-PlanetDash"]);
+		if (level_name == "Level_3")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrame-SaveEarth"]);
+		if (level_name == "Sandbox")
+			level_in.shape.setTexture(&textureMap_in["LevelSelectFrame-Sandbox"]);
 	}
 }
 
 void LevelSelect::updateLevelSelectFrame(sf::RenderWindow& window_in, std::map<std::string, sf::Texture>& textureMap_in)
 {
-	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->level_1);
-	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->level_2);
-	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->level_3);
-	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->sandbox);
+	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->level_1, "Level_1");
+	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->level_2, "Level_2");
+	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->level_3, "Level_3");
+	this->swapLevelSelectFrameTexture(window_in, textureMap_in, this->sandbox, "Sandbox");
 }
 
 void LevelSelect::updateButtons(sf::RenderWindow& window_in)

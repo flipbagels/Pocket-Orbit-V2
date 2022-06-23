@@ -64,7 +64,7 @@ public:
 	bool isLevelPressed(sf::RenderWindow& window_in) const;
 	std::string whichLevel(sf::RenderWindow& window_in) const;
 	bool isHomePressed(sf::RenderWindow& window_in) const;
-	void swapLevelSelectFrameTexture(sf::RenderWindow& window_in, std::map<std::string, sf::Texture>& textureMap_in, Rectangle& level_in);
+	void swapLevelSelectFrameTexture(sf::RenderWindow& window_in, std::map<std::string, sf::Texture>& textureMap_in, Rectangle& level_in, std::string level_name);
 	void updateLevelSelectFrame(sf::RenderWindow& window_in, std::map<std::string, sf::Texture>& textureMap_in);
 	void updateButtons(sf::RenderWindow& window_in);
 	void render(sf::RenderTarget& target);

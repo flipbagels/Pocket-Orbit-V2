@@ -74,8 +74,15 @@ void Game::initTextures()
 	this->assignTexture("Textures/TitleText2.png", "TitleText");
 
 	// Level Select Frame
-	this->assignTexture("Textures/LevelSelectFrame.png", "LevelSelectFrame");
-	this->assignTexture("Textures/LevelSelectFrameSelected.png", "LevelSelectFrameSelected");
+	this->assignTexture("Textures/LevelSelectFrame-CometDash.png", "LevelSelectFrame-CometDash");
+	this->assignTexture("Textures/LevelSelectFrame-PlanetDash.png", "LevelSelectFrame-PlanetDash");
+	this->assignTexture("Textures/LevelSelectFrame-SaveEarth.png", "LevelSelectFrame-SaveEarth");
+	this->assignTexture("Textures/LevelSelectFrame-Sandbox.png", "LevelSelectFrame-Sandbox");
+	this->assignTexture("Textures/LevelSelectFrameSelected-CometDash.png", "LevelSelectFrameSelected-CometDash");
+	this->assignTexture("Textures/LevelSelectFrameSelected-PlanetDash.png", "LevelSelectFrameSelected-PlanetDash");
+	this->assignTexture("Textures/LevelSelectFrameSelected-SaveEarth.png", "LevelSelectFrameSelected-SaveEarth");
+	this->assignTexture("Textures/LevelSelectFrameSelected-Sandbox.png", "LevelSelectFrameSelected-Sandbox");
+
 	this->assignTexture("Textures/Sandbox.png", "Sandbox");
 
 	// Buttons
