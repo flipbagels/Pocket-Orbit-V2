@@ -10,13 +10,13 @@ void Game::initVariables()
 
 void Game::initWindow()
 {
-	this->videoMode.width = 1920;
-	this->videoMode.height = 1000;
-	//this->videoMode.width = sf::VideoMode::getDesktopMode().width;
-	//this->videoMode.height = sf::VideoMode::getDesktopMode().height;
+	//this->videoMode.width = 1920;
+	//this->videoMode.height = 1000;
+	this->videoMode.width = sf::VideoMode::getDesktopMode().width;
+	this->videoMode.height = sf::VideoMode::getDesktopMode().height;
 
 	this->window = new sf::RenderWindow(this->videoMode, "Pocket Orbit",
-		sf::Style::Titlebar | sf::Style::Close /*| sf::Style::Fullscreen*/);
+		sf::Style::Titlebar | sf::Style::Close | sf::Style::Fullscreen);
 
 	this->window->setFramerateLimit(60);
 }
